@@ -1,0 +1,86 @@
+body{
+    background-color: #faeaea;
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    color: #f69a9a;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+
+}
+main{
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: left;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+textarea{
+  margin: 3%;
+  width: 95%;
+  height: 230px;
+  font-size:80%;
+  box-shadow: 3px 3px 3px 3px #555;
+}
+.form{
+ text-align: center;
+}
+
+#preview{
+    width: 150px;
+}
+.card {
+    width: 30%; /* 3枚横に並べるための幅 */
+    height: 300px;
+    margin: 10px;
+    /* display: flex; */
+    margin: 0 auto;
+    /* float: left; */
+    border: 5px solid #593503;
+    ;
+    padding: 10px;
+    font-size: 10px;
+    background-color: #f8c8c8;
+}
+.card p{
+    margin-top: 0px;
+    color: #593503;
+    height: 20px;
+}
+h3{
+    color: #f69a9a;
+    margin-top: 10px;
+    margin-bottom: 0%;
+}
+label.formclass{
+    color: #593503;
+    font-size: 20px;
+}

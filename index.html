@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>myMemoPad</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>自己紹介カード</h1>
+    </header>
+
+    <main style="display: none;">
+        <!-- カード登録 -->
+        <div class="form">
+            <h3>入力フォーム</h3>
+            <div class="coform">
+                <label for="name" class="formclass">Name</label>
+                <input type="text" id="name">
+            </div>
+            <div class="coform">
+                <label for="hobby" class="formclass">Hobby</label>
+                <input type="text" id="hobby">
+            </div>
+            <div class="coform">
+                <label for="favorite" class="formclass">Favorite</label>
+                <input type="text" id="favorite">
+            </div>
+            <div class="coform">
+                <label for="comment" class="formclass">Comment</label>
+                <input type="text" id="comment">
+            </div>
+            <div class="img">
+                <label for="img" class="formclass">image</label>
+                <input type="file" id="img">
+                <br>
+                <img id="preview">
+            </div>
+            <div class="add">
+                <button id="add">add</button>
+            </div>
+        </div>
+        <!-- カードの表示 -->
+        <div class="cardlist">
+            <div class="card"></div>
+        </div>
+
+    </main>
+    <footer><small>G's Community</small></footer>
+    <script>
+        $("main").fadeIn(1500)
+        // 画像プレビュー
+        $("#img").on("change", function () {
+            var photo = new FileReader();
+            photo.onload = function () {
+                $('#preview').attr('src', photo.result);}
+            photo.readAsDataURL(this.files[0]);
+        });
+
+        //1.add クリックイベント
+        $("#add").on("click", function () {
+            const name = $("#name").val()
+            localStorage.setItem("name", name)
+            const hobby = $("#hobby").val()
+            localStorage.setItem("hobby", hobby)
+            const favorite = $("#favorite").val()
+            localStorage.setItem("favorite", favorite)
+            const comment = $("#comment").val()
+            localStorage.setItem("comment", comment)
+            // const photo= $("#img",img)
+            // localStorage.setItem("photo",img)
+
+        // ローカルストレージからデータを取得 
+            let namecard = localStorage.getItem("name")
+            let hobbycard = localStorage.getItem("hobby")
+            let favoritecard = localStorage.getItem("favorite")
+            let commentcard = localStorage.getItem("comment")
+        // addCard関数実行
+            addCard(namecard, hobbycard, favoritecard, commentcard)
+        })
+
+        // ※関数定義→→→cardを作る関数
+        function addCard(name, hobby, favorite, comment) { 
+        // 各データをカードに反映
+            $(".card").append("<p>Name: " + name + "</p>");
+            $(".card").append("<p>Hobby: " + hobby + "</p>");
+            $(".card").append("<p>Favorite: " + favorite + "</p>");
+            $(".card").append("<p>Comment: " + comment + "</p>");
+
+            // 画像のプレビューも追加
+            // card.append("<img src='" + imgSrc + "' alt='Card Image'>");
+            // カードをカードリストに追加
+            // $(".cardlist").append(card);
+        }
+
+        // 3. ページ読み込み時の表示
+        
+
+
+        // 2.ページ読み込み：保存データ取得表示s
+        //ロード時に表示
+        //    if(localStorage.getItem()){
+        //     const name=localStorage.getItem("name")
+        //     $("#text_area").val(v)
+        //    }
+        //     //3.clear データを保存したらフォームクリアしたい
+        //    $("#clear").on("click",function(){
+        //     localStorage.removeItem("memo")
+        //     $("#text_area").val("")
+        //    })
+
+
+    </script>
+</body>
+
+</html>
